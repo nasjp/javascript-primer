@@ -15,3 +15,13 @@ services:
       sh -c '
         npx @js-primer/local-server
       '
+
+  nodecli:
+    <<: *base
+    volumes:
+      - ./nodecli/:/nodecli:cached
+    working_dir: /nodecli
+    command: >
+      sh -c '
+        node main.js
+      '
