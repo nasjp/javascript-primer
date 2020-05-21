@@ -25,3 +25,15 @@ services:
       sh -c '
         node main.js
       '
+
+  todoapp:
+    <<: *base
+    volumes:
+      - ./todoapp/:/todoapp:cached
+    working_dir: /todoapp
+    ports:
+      - 3000:3000
+    command: >
+      sh -c '
+        npx @js-primer/local-server
+      '
